@@ -3,7 +3,7 @@ PERSONAL ASSISTANT with LangChain and OpenAI
 https://python.langchain.com/en/latest/use_cases/agents/baby_agi.html
 https://python.langchain.com/en/latest/use_cases/personal_assistants.html
 '''
-
+import os
 from typing import Dict, List, Optional, Any
 from langchain import LLMChain, OpenAI, PromptTemplate
 from langchain.embeddings import OpenAIEmbeddings
@@ -13,8 +13,8 @@ from langchain.docstore import InMemoryDocstore
 import faiss
 from my_controller import BabyAGI
 import openai
-from settings import config
-openai.api_key = config["OPENAI_API_KEY"]
+#from settings import config
+openai.api_key = os.getenv('OPENAI_API_KEY')     #config["OPENAI_API_KEY"]
 
 
 # Define your embedding model
